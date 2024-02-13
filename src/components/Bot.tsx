@@ -13,6 +13,7 @@ import socketIOClient from 'socket.io-client';
 import { Popup } from '@/features/popup';
 import { Avatar } from '@/components/avatars/Avatar';
 import { DeleteButton } from '@/components/SendButton';
+import { anonymizer } from '@/anonymizer/anonymize';
 
 type messageType = 'apiMessage' | 'userMessage' | 'usermessagewaiting';
 
@@ -253,8 +254,14 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
       return messages;
     });
 
+    console.log('---------- Anonymizerrrr -------------');
+    // let extractResult = await extractPHI(value);
+    let extractResult = await anonymizer(value);
+    console.log(extractResult);
+
     const body: IncomingInput = {
-      question: value,
+      // question: value,
+      question: extractResult,
       history: messageList,
       chatId: chatId(),
     };

@@ -25,6 +25,7 @@ export const sendRequest = async <ResponseData>(
         typeof params !== 'string' && isDefined(params.body)
           ? {
               'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*'
             }
           : undefined,
       body: typeof params !== 'string' && isDefined(params.body) ? JSON.stringify(params.body) : undefined,
