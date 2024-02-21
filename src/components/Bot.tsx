@@ -254,8 +254,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
       return messages;
     });
 
-    console.log('---------- Anonymizerrrr -------------');
-    // let extractResult = await extractPHI(value);
+    console.log('---------- Anonymizer Result -------------');
     let extractResult = await anonymizer(value);
     console.log(extractResult);
 
@@ -278,6 +277,9 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
 
     if (result.data) {
       const data = result.data;
+      console.log('---------- OpenAI Response -------------');
+      console.log(data.text);
+
       if (!isChatFlowAvailableToStream()) {
         let text = '';
         if (data.text) text = data.text;

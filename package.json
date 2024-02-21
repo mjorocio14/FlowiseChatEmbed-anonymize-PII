@@ -6,6 +6,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "serve": "node --version",
     "dev": "rollup --watch --config rollup.config.js",
     "build": "rollup --config rollup.config.js",
     "lint": "eslint \"src/**/*.ts*\"",
@@ -13,6 +14,7 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md,mdx}\"",
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,md,mdx}\"",
     "prepare": "husky install"
+
   },
   "license": "MIT",
   "dependencies": {
